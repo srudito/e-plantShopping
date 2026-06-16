@@ -4,7 +4,7 @@ import { addItem, removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
-  const cart = useSelector((state) => state.cart?.items || []);
+  const cart = useSelector((state) => state.cart.items || []);
   const dispatch = useDispatch();
 
   const calculateTotalAmount = () => {
@@ -40,7 +40,8 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleCheckoutShopping = (e) => {
-    alert('Checkout coming soon');
+    e.preventDefault();
+    alert('Checkout functionality coming soon');
   };
 
   const handleIncrement = (item) => {
@@ -75,9 +76,10 @@ const CartItem = ({ onContinueShopping }) => {
       </h3>
 
       {cart.length === 0 ? (
-        <p style={{ color: 'black', textAlign: 'center' }}>
-          Your cart is empty.
-        </p>
+        <div className="empty-cart" style={{ textAlign: 'center', marginTop: '40px' }}>
+          <h3 style={{ color: 'black' }}>Your cart is empty.</h3>
+          <p style={{ color: 'black' }}>Continue shopping to add plants to your cart.</p>
+        </div>
       ) : (
         <div className="cart-items">
           {cart.map((item) => (
@@ -91,9 +93,7 @@ const CartItem = ({ onContinueShopping }) => {
               <div className="cart-item-details">
                 <div className="cart-item-name">{item.name}</div>
 
-                <div className="cart-item-cost">
-                  Unit Price: {item.cost}
-                </div>
+                <div className="cart-item-cost">Unit Price: {item.cost}</div>
 
                 <div className="cart-item-quantity">
                   <button
