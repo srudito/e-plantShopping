@@ -163,7 +163,17 @@ body {
 .cart{
     color: white;
     display: flex;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
 }
+
+.cart svg {
+    display: block;
+}
+
 .cart_quantity_count{
     margin-top: 16px;
     /* background-color: red; */
@@ -176,17 +186,19 @@ body {
    display: flex;
    align-items: center;
    justify-content: center;
+   margin: 25px 0 35px 0;
     /* background-color: yellow; */
 }
-.plant_heading{
-    width: 400px;
-    text-align: center;
-    margin: 20px;
-    border: 1px solid rgb(5, 4, 4);
-    border-left: none;
-    border-right: none;
-
-    
+.plant_heading {
+  font-size: 32px;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  min-width: 420px;
+  padding: 8px 0;
+  border-top: 2px solid #cfcfcf;
+  border-bottom: 2px solid #cfcfcf;
 }
 /* Add Media Query for responsiveness */
 @media (max-width: 768px) {
